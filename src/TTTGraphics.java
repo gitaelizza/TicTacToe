@@ -41,6 +41,7 @@ public class TTTGraphics extends JFrame {
     private String player2Name;
     private JButton resetButton;
     private Image backgroundImage;
+    private JButton aboutButton;
 
     public TTTGraphics() {
         initGame();
@@ -91,8 +92,14 @@ public class TTTGraphics extends JFrame {
             }
         });
 
+        aboutButton = new JButton("About");
+        aboutButton.addActionListener(e -> {
+            SwingUtilities.invokeLater(AboutFrame::new);
+        });
+        cp.add(aboutButton, BorderLayout.LINE_END);
+
         // Add the "New Game" button to the UI
-        cp.add(resetButton, BorderLayout.PAGE_START);
+        cp.add(resetButton, BorderLayout.LINE_START);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
